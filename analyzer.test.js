@@ -1,0 +1,10 @@
+const assert = require('node:assert/strict');
+const {test} = require('node:test');
+const {inspect, emailDomain} = require('../src/analyzer.js');
+test('ordinary message has zero score', () => { const r = inspect({author:'Someone <someone@example.com>', subject:'Meeting', text:'See you Tuesday', links:[{href:'https://example.com', label:'Our site'}]}); assert.equal(r.score, 0); assert.equal(r.level, 'low'); });
+test('mismatched visible host scores 35', () => { const r = inspect({links:[{label:'https://bank.example/login', href:'https://attacker.example/login'}]}); assert.equal(r.score, 35); });
+test('reply-to domain difference is detected', () => { const r = inspect({author:'a@example.com', replyTo:'b@other.test'}); assert.equal(r.score, 20); });
+test('recognizes pressure and urgency', () => { const r = inspect({subject:'URGENT ACTION REQUIRED: verify your account immediately'}); assert.equal(r.score,25); });
+test('multiple high-risk indicators yield elevated score', () => { const r = inspect({author:'a@example.com',replyTo:'a@other.test',links:[{href:'http://192.168.1.2/login',label:'https://bank.example'}]}); assert.equal(r.level,'high'); });
+test('handles invalid or maliciously formatted urls', () => { const r = inspect({links:[{href:'javascript:alert(1)'},{href:'https://%'},{href:'mailto:a@example.com'}]}); assert.equal(r.score,20); });
+test('extracts sender email domain', () => assert.equal(emailDomain('Alice <alice@example.com>'), 'example.com'));
