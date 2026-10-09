@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "PhishGuard for Thunderbird",
+  "version": "0.2.0",
+  "description": "Automatic local phishing checks on incoming messages, with colored tags, stars, and alerts.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "phishguard-local@example.org",
+      "strict_min_version": "128.0"
+    }
+  },
+  "permissions": [
+    "messagesRead",
+    "accountsRead",
+    "messagesUpdate",
+    "messagesTags",
+    "messagesTagsList",
+    "notifications"
+  ],
+  "message_display_action": {
+    "default_title": "Scan this email for phishing indicators",
+    "default_label": "PhishGuard",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "src/analyzer.js",
+      "src/background.js"
+    ]
+  }
+}

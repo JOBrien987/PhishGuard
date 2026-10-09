@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PhishGuard</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header><h1>PhishGuard</h1><p>Local email risk check</p></header>
+<main><p id="status" role="status">Checking displayed email…</p>
+<section id="results" hidden>
+<div class="summary"><span id="score"></span><strong id="verdict"></strong></div>
+<p id="scope">Heuristic indicators only. A low score does not prove an email is safe.</p>
+<h2>Findings</h2><ul id="findings"></ul>
+<p id="counts"></p></section></main>
+<footer>Nothing is uploaded or sent to external services.</footer>
+<script src="src/analyzer.js"></script><script src="src/popup.js"></script>
+</body></html>
