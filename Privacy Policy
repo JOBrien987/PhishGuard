@@ -1,0 +1,29 @@
+# PhishGuard Privacy Policy
+
+**Effective date: October 9, 2026**
+
+PhishGuard is a Thunderbird extension designed to analyze email messages for potential phishing indicators.
+
+**Information accessed**
+
+PhishGuard accesses email message content, sender information, message headers, and hyperlinks to evaluate phishing risk.
+
+**Local processing**
+
+PhishGuard performs phishing analysis locally within Thunderbird. The current version doesn't transmit email contents to external servers or third-party phishing analysis services.
+
+**Storage**
+
+PhishGuard maintains a temporary in-memory cache of analysis results and uses Thunderbird's built-in message tags and flags to identify suspicious emails.
+
+**Third parties**
+
+PhishGuard doesn't use third-party analytics or advertising services.
+
+**User control**
+
+Users can disable or uninstall PhishGuard through Thunderbird's Add-ons Manager. Tags and flags previously applied to messages may remain after uninstalling.
+
+**Contact**
+
+For questions about this privacy policy, contact the developer through the project's published support email.
